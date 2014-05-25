@@ -1,6 +1,7 @@
-﻿<Window x:Class="GPA_Calculator.MainWindow"
+﻿<controls:MetroWindow x:Class="GPA_Calculator.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
         WindowStyle="SingleBorderWindow"
         Title="GPA CALCULATOR ALPHA" Height="350" Width="525" ResizeMode="NoResize">
     <Grid>
@@ -21,15 +22,8 @@
             <Run Language="ja-jp" Text="Ex. "/>
             <Run Text="CSC108 H"/></TextBlock>
 
-        <TextBox x:Name="Course_Code" 
-                 MaxLength="7"
-                 Margin="72,118,313,183" 
-                 TextAlignment="Center" 
-                 ToolTip="Course Code"  
-                 />
-
         <TextBox x:Name="percent" HorizontalAlignment="Left" 
-                 Margin="240,117,0,0" 
+                 Margin="245,116,0,0" 
                  MaxLength="2"
                  TextWrapping="Wrap" 
                  VerticalAlignment="Top" 
@@ -59,8 +53,9 @@
         	VerticalAlignment="Top" 
         	RenderTransformOrigin="0.25,0.545" 
         	Background="{x:Null}" Click="Clear_Click"/>
+        <TextBox x:Name="CourseCodeBox" HorizontalAlignment="Left" Height="23" Margin="68,116,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="134"/>
 
 
 
     </Grid>
-</Window>
+</controls:MetroWindow>

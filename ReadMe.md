@@ -1,7 +1,6 @@
 # GPA Calculator (Early Build Version) #
 ##  ##
-
-![](http://imgur.com/fehYD8N.png)
+##![](http://imgur.com/OTS7Oho.png)##
 ### Description ###
 
 - Simple GPA calculator written in C#

@@ -13,13 +13,15 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using MahApps.Metro.Controls;
+
 
 namespace GPA_Calculator
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class MainWindow : MetroWindow
     {
         // Variable Declarations
         Dictionary<string, int> Data = new Dictionary<string, int>();
@@ -76,7 +78,7 @@ namespace GPA_Calculator
         {
             // Case for nothing entered
             // Result: Error Mesage
-            if (string.IsNullOrWhiteSpace(Course_Code.Text) || string.IsNullOrWhiteSpace(percent.Text))
+            if (string.IsNullOrWhiteSpace(CourseCodeBox.Text) || string.IsNullOrWhiteSpace(percent.Text))
             {
                 simpleSound.Play();
                 MessageBox.Show("Please complete the fields!", "Error", MessageBoxButton.OK);
@@ -84,9 +86,9 @@ namespace GPA_Calculator
 
             // Case for both fields not null
             // Result: proceed as intended
-            if (!string.IsNullOrWhiteSpace(Course_Code.Text) & !string.IsNullOrWhiteSpace(percent.Text))
+            if (!string.IsNullOrWhiteSpace(CourseCodeBox.Text) & !string.IsNullOrWhiteSpace(percent.Text))
             {
-                codeTemp = Course_Code.Text;
+                codeTemp = CourseCodeBox.Text;
                 gradeTemp = int.Parse(percent.Text);
 
                 // Case for duplicate courses
@@ -137,7 +139,7 @@ namespace GPA_Calculator
 
                     // Add Course to dictionary
                     Data.Add(codeTemp, gradeTemp);
-                    MessageBox.Show(Course_Code.Text + " with grade " + gradeTemp + " added to database!", "Success!", MessageBoxButton.OK);
+                    MessageBox.Show(CourseCodeBox.Text + " with grade " + gradeTemp + " added to database!", "Success!", MessageBoxButton.OK);
 
                 }
             }
