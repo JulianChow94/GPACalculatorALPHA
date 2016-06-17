@@ -12,7 +12,7 @@ namespace GpaCalculator
         private String code; // CSC108H
         private int grade;
         private double weight;
-        private float value; // Grade Point Value
+        private float value;
 
         // Encapsulate
         public String Code
@@ -29,7 +29,7 @@ namespace GpaCalculator
         }
         public double Weight
         {
-            set { this.weight = this.getWeight(); }
+            set { this.weight = Weight; }
             get { return this.weight; }
         }
 
@@ -41,15 +41,17 @@ namespace GpaCalculator
 
         public float Value
         {
-            set { this.value = getValue(); }
+            set { this.value = Value; }
             get { return this.value; }
         }
 
         /* Constructor */
         public Course(String CourseCode, int CourseGrade)
         {
-            this.code = CourseCode;
+            this.Code = CourseCode;
             this.Grade = CourseGrade;
+            this.Weight = getWeight();
+            this.Value = calculateGPA();
         }
 
         /* Methods */
@@ -73,8 +75,13 @@ namespace GpaCalculator
             return -1;
         }
 
-        // Determine GPA value of this course based on grade
         public float getValue()
+        {
+            return this.Value;
+        }
+
+        // Determine GPA value of this course based on grade
+        public float calculateGPA()
         {
             if (this.Grade >= 85)
                 return (float) 4.0;
