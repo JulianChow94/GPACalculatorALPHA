@@ -1,67 +1,38 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace GpaCalculator
+namespace GpaCalculator.Core
 {
-    public class Course
-    {
-        /* Instance Variables */
-        private String code; // CSC108H
-        private int grade;
-        private double weight;
-        private float value;
+    public class Course : ICourse
+    { 
+        public String Code { get; set; }
 
-        // Encapsulate
-        public String Code
-        {
-            set
-            {
-                if (Code.Length != 7)
-                {
-                    throw new Exception();
-                }
-                this.code = Code;
-            }
-            get { return this.code; }
-        }
-        public double Weight
-        {
-            set { this.weight = Weight; }
-            get { return this.weight; }
-        }
 
-        public int Grade
-        {
-            set { this.grade = Grade; }
-            get { return this.grade; }
-        }
 
-        public float Value
-        {
-            set { this.value = Value; }
-            get { return this.value; }
-        }
+        public int Grade { get; set; }
+
+        public double Weight { get; set; }
+
+        public float Value { get; set; }
 
         /* Constructor */
         public Course(String CourseCode, int CourseGrade)
         {
-            this.Code = CourseCode;
-            this.Grade = CourseGrade;
-            this.Weight = getWeight();
-            this.Value = calculateGPA();
+            Code = CourseCode;
+            Grade = CourseGrade;
+            Weight = getWeight();
+            Value = calculateGPA();
         }
+
+        public Course() { }
 
         /* Methods */
 
         // Return 0.5 or 1.0 depending on the course code
         public double getWeight()
         {
-            char type = this.Code[this.Code.Length - 1];
+            char type = Code[Code.Length - 1];
 
-            if (type != 'Y' || type != 'H')
+            if (type != 'Y' && type != 'H')
             {
                 throw new Exception();
             }
